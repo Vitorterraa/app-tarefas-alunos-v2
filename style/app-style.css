@@ -265,10 +265,7 @@
 }
 
 
-
-
-
-  body.dark{
+body.dark{
 
     .task-form{
       background-color: #393e46;
@@ -293,8 +290,22 @@
       color: #92fbdd;
     }
 
-    h2{
+    .h2{
       color: #92fbdd;
+    }
+
+    h2{
+
+      color: #222831;
+    }
+
+    button{
+      background-color: #92fbdd;
+      color: #000;
+    }
+
+    button:hover{
+      background-color: #28e7c7;
     }
 
     .task-item p{

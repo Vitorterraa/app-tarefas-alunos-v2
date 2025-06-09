@@ -27,7 +27,8 @@ adicionarTarefaBtn.addEventListener('click', () => {
         Swal.fire({
             icon: 'warning',
             title: 'Atenção!',
-            text: 'Preencha todos os campos!'
+            text: 'Preencha todos os campos!',
+            confirmButtonColor: "#ff00dd"
         });
         return;
     }
@@ -39,7 +40,8 @@ adicionarTarefaBtn.addEventListener('click', () => {
         Swal.fire({
             icon: 'error',
             title: 'Data inválida!',
-            text: 'A tarefa não pode ser criada com data e hora no passado.'
+            text: 'A tarefa não pode ser criada com data e hora no passado.',
+                        confirmButtonColor: "#ff00dd"
         });
         return;
     }
@@ -94,6 +96,7 @@ adicionarTarefaBtn.addEventListener('click', () => {
         icon: 'success',
         title: 'Sucesso!',
         text: 'Tarefa adicionada com sucesso!',
+                    confirmButtonColor: "#ff00dd"
     });
     
     document.querySelector('#taskForm').reset();
@@ -207,7 +210,8 @@ const marcarComoConcluida = (button) => {
             Swal.fire({
                 icon: 'info',
                 title: 'Informação',
-                text: 'Esta tarefa já foi concluída!'
+                text: 'Esta tarefa já foi concluída!',
+                            confirmButtonColor: "#ff00dd"
             });
             return;
         }
@@ -218,7 +222,8 @@ const marcarComoConcluida = (button) => {
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Sim, concluir!',
-            cancelButtonText: 'Cancelar'
+            cancelButtonText: 'Cancelar',
+                        confirmButtonColor: "#ff00dd"
         }).then((result) => {
             
             if (result.isConfirmed) {
@@ -245,6 +250,7 @@ const marcarComoConcluida = (button) => {
                         icon: 'success',
                         title: 'Sucesso!',
                         text: 'Tarefa marcada como concluida!',
+                                    confirmButtonColor: "#ff00dd"
                     });
                 }, 200);
             }
@@ -266,6 +272,7 @@ const editarTarefa = (button) => {
     showCancelButton: true,
     cancelButtonText: 'Cancelar',
     confirmButtonText: 'Próximo',
+                confirmButtonColor: "#ff00dd",
     inputValidator: (value) => {
       if (!value || value.trim() === '') {
         return 'Insira um título válido!';
@@ -283,6 +290,7 @@ const editarTarefa = (button) => {
       inputValue: descricaoAtual,
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
+                  confirmButtonColor: "#ff00dd",
       confirmButtonText: 'Salvar',
       inputValidator: (value) => {
         if (!value || value.trim() === '') {
@@ -314,6 +322,7 @@ const editarTarefa = (button) => {
         icon: 'success',
         title: 'Sucesso!',
         text: 'Tarefa atualizada com sucesso!',
+                    confirmButtonColor: "#ff00dd"
       });
     });
   });
@@ -326,7 +335,8 @@ const excluirTarefa = (button) => {
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'Sim, excluir!',
-        cancelButtonText: 'Cancelar'
+        cancelButtonText: 'Cancelar',
+                    confirmButtonColor: "#ff00dd"
     }).then((result) => {
         if (result.isConfirmed) {
             const taskItem = button.closest('.task-item');
@@ -352,6 +362,7 @@ const excluirTarefa = (button) => {
                 icon: 'success',
                 title: 'Sucesso!',
                 text: 'Tarefa excluída com sucesso!',
+                            confirmButtonColor: "#ff00dd"
             });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire("Cancelado", "Você cancelou a ação", "error");
@@ -439,7 +450,8 @@ botaoRestaurar.addEventListener('click', () => {
         Swal.fire({
             icon: 'info',
             title: 'Informação',
-            text: 'Nenhuma tarefa foi excluída ainda!'
+            text: 'Nenhuma tarefa foi excluída ainda!',
+                        confirmButtonColor: "#ff00dd"
         });
         return;
     }
@@ -462,6 +474,7 @@ botaoRestaurar.addEventListener('click', () => {
         title: 'Restaurar tarefa',
         html: `<div class="modal-task-list">${listaTarefasHTML}</div>`,
         showConfirmButton: false,
+                    confirmButtonColor: "#ff00dd",
         showCloseButton: true,
         didOpen: () => {
             const container = Swal.getHtmlContainer();
@@ -490,6 +503,7 @@ botaoRestaurar.addEventListener('click', () => {
                         title: 'Tarefa restaurada!',
                         text: `"${tarefaRestaurada.nome}" foi restaurada com sucesso.`,
                         timer: 1500,
+                                    confirmButtonColor: "#ff00dd",
                         showConfirmButton: false
                     });
                 });
@@ -507,7 +521,8 @@ botaoEsvaziarLixeira.addEventListener('click', () => {
         Swal.fire({
             icon: 'info',
             title: 'Lixeira Vazia',
-            text: 'Não há tarefas para esvaziar.'
+            text: 'Não há tarefas para esvaziar.',
+                        confirmButtonColor: "#ff00dd"
         });
         return;
     }
@@ -516,6 +531,7 @@ botaoEsvaziarLixeira.addEventListener('click', () => {
         title: 'Tem certeza?',
         text: "Esta ação irá apagar todas as tarefas excluídas permanentemente!",
         icon: 'warning',
+                    confirmButtonColor: "#ff00dd",
         showCancelButton: true,
         confirmButtonText: 'Sim, esvaziar!',
         cancelButtonText: 'Cancelar'
@@ -525,6 +541,8 @@ botaoEsvaziarLixeira.addEventListener('click', () => {
             Swal.fire(
                 'Lixeira esvaziada!',
                 'Todas as tarefas excluídas foram removidas.',
+                
+            
                 'success'
             );
         }
@@ -549,3 +567,5 @@ document.addEventListener('DOMContentLoaded', () =>{
         localStorage.setItem('theme', newTheme)
     });
 });
+
+
