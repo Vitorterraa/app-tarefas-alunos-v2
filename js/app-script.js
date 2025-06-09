@@ -1,3 +1,7 @@
+
+//Variavéis
+
+
 const NomeTarefa = document.getElementById('taskName');
 const DescricaoTarefa = document.getElementById('taskDescription');
 const DataVencimento = document.getElementById('taskDate');
@@ -10,6 +14,10 @@ const ordenarAltaBtn = document.getElementById('ordenarAltaBtn');
 const ordenarBaixaBtn = document.getElementById('ordenarBaixaBtn');
 
 let tarefasExcluidas = JSON.parse(localStorage.getItem('tarefasExcluidas')) || [];
+
+
+
+
 
 
 //Header com data, hora e saudação
@@ -94,10 +102,7 @@ adicionarTarefaBtn.addEventListener('click', () => {
     
 });
 
-window.onload = function () {
-    atualizarHeader();
-    carregarTarefas();
-};
+
 
 const saudacaoHeader = document.getElementById('saudacaoHeader');
 
@@ -133,15 +138,21 @@ const atualizarHeader = () => {
     saudacaoHeader.innerHTML = `<span>${saudacao}</span> <span>${dataCompleta} ${horario}</span>`;
 };
 
+
+
+
+
+
+
+//DOM
+
+window.onload = function () {
+    atualizarHeader();
+    carregarTarefas();
+};
+
 setInterval(atualizarHeader, 1000);
 atualizarHeader();
-
-
-
-
-
-
-
 
 const carregarTarefas = () => {
     
@@ -177,6 +188,15 @@ const carregarTarefas = () => {
     });
 };
 
+
+
+
+
+
+
+
+
+//Tarefas em geral
 
 const marcarComoConcluida = (button) => {
 
@@ -360,6 +380,9 @@ const filtrarTarefas = (filtro) => {
     });
 };
 
+
+//Botões Filtro
+
 ordenarAntiga.addEventListener('click', () => {
     const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
@@ -507,8 +530,9 @@ botaoEsvaziarLixeira.addEventListener('click', () => {
         }
     });
 });
-// Dark mode
 
+
+//Tema Claro / Escuro
 document.addEventListener('DOMContentLoaded', () =>{
     const currentTheme = localStorage.getItem('theme') || 'light';
 
